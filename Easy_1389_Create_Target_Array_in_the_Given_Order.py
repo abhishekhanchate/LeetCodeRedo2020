@@ -16,15 +16,24 @@
 #        return target
 
 # Without Using Insert() 32 ms, Faster than 74.52%, 14.1 MB, Less than 6.92%
+#class Solution:
+#    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
+        
+#        target = []
+        
+#        for i in range(len(index)):
+            
+#            target = target[:index[i]] + [nums[i]] + target[index[i]:]
+        
+#        return target
+ 
+# Using Insert() and Pop() 28 ms, Faster than 92.13%, 14.2 MB, Less than 5.03 %
 class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
         
         target = []
         
-        for i in range(len(index)):
+        for num in nums:
+            target.insert(index.pop(0), num)
             
-            target = target[:index[i]] + [nums[i]] + target[index[i]:]
-        
         return target
-    
-    
